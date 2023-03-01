@@ -1,0 +1,520 @@
+
+import os
+
+
+
+### GUestin menusuu
+
+
+
+
+
+
+Guest= {
+    'Hotdog': {
+        'price': 2,
+    },
+    'Cola': {
+        'price': 1.5,
+    },
+    'Hamburger': {
+        'price': 3,
+    }
+}
+###Petrol
+guestPetrol = {
+    'Ai-92': {
+        'price': 1
+    },
+    'Ai-95': {
+        'price': 1.6
+    },
+    'Diesel': {
+        'price': 0.9
+    }
+
+}
+
+
+
+
+
+#### Menu cixartan funksiya
+
+def ShowGuestMenu(Guest):
+    for key in Guest.keys():
+        print(
+            f"Fast-food {key}  -  price : {Guest[key]['price']} ")
+
+def ShowGuestMenus(Guest):
+
+    i = 1
+    for key in Guest.keys():
+        print(f"{i})  {key} ")
+        i += 1
+    # ShowGuestMenu(Guest)
+
+
+
+####### Petrolu cixartan funksiya
+
+def ShowGuestPetrol(Guest_p):
+    for key in guestPetrol.keys():
+        print(f"Petrol {key}  -  price : per/litre  {guestPetrol[key]['price']} AZN ")
+
+
+def ShowGuestPetrols(Guest_p):
+    i = 1
+    for key in guestPetrol.keys():
+        print(f"{i}) {key} ")
+        i += 1
+
+
+        # ShowGuestPetrol(guestPetrol)
+
+# ShowGuestPetrols(guestPetrol)
+
+# ShowGuestMenus(Guest)
+
+# #### READ APPEND MOOD
+
+
+## with open("Dataes.txt","a") as file:
+##     fullinfo=str(Guest)
+##     fullinfo2 = str(guestPetrol)
+##     file.write(f"\n{fullinfo}\n")
+##     file.write(f"\n{fullinfo2}\n")
+##     file.close()
+
+
+gmail = {
+    "gmail":"turqay"
+
+}
+password = {
+    "password":"123"
+}
+
+adminLogin = 'turqaym'
+adminPasword = '123t'
+
+def adminyoxlanisi():
+    while True:
+        adminuser = input('Enter admin Email : ')
+        adminparola = input('Enter admin parola : ')
+        if adminuser == adminLogin and adminparola ==adminPasword:
+            print('Welcome Admin')
+            break
+        else:
+            print('Daxil edilmis informasiya duzgunluyunu yoxlayin ')
+
+
+
+def PaswordYoxlanisi():
+    while True:
+        userparola = input('Enter password')
+        if password['password'] == userparola:
+            print('Welcome')
+            break
+        else:
+            print('Parola yanlis')
+
+
+def Emailyoxlaniwi():
+    while True:
+        chech = input('Enter Email: ')
+        if gmail['gmail'] == chech:
+            PaswordYoxlanisi()
+            break
+        else:
+            print('user email  yanlis')
+
+
+def adminecixan():
+    adminShow = '1)ShowPetrol\n2)ShowFastFood\n3)DelPetrol\n4)DelFastFood\n5)AddPetrol\n6)AddFastFood\n7)Exit system'
+    print(adminShow)
+
+
+
+
+
+balance = 800
+import time
+Start = input('\n1)Guest\n2)Admin\t')
+print('\n\tGunes Petrola xos gelmisiniz\n ')
+try:
+    while True:
+        if Start == '1':
+
+            Emailyoxlaniwi()
+
+            while True:
+
+                choce = input('1)Petrol\n2)Market')
+
+                if choce == '1':
+                    ShowGuestPetrols(guestPetrol)
+                    choce_pet = input('1)Litr\n2)Qiymet')
+
+                    if choce_pet == '1':
+                        ShowGuestPetrols(guestPetrol)
+                        azn = float(input('Nece manatdiq alacaqsiz'))
+                        secim = input('Secim edin : ')
+                        if secim=="1":
+                            result = azn / 1
+                            azn = azn * 1
+                            print(f"{result}Litr Ai92 ")
+                            pay3 = input('Odenis\n1)Nagd\n2)Kart')
+                            if pay3 == '1':
+                                if balance >= azn:
+                                    ode = balance - azn
+                                    print(ode, 'bizi secdiyiniz ucun tessekurler ')
+                                else:
+                                    print('Pulunuz yoxdur ')
+                            elif pay3 == '2':
+                                if balance >= azn:
+                                    balance = balance - azn
+                                    print('Kartinizi yaxinlasdirin')
+
+                                    time.sleep(4)
+                                    print('Balance', balance, 'Bizi secdiyiniz ucun tessekurler!!')
+                                else:
+                                    print('Kartinizi yaxinlasdirin')
+                                    time.sleep(2)
+                                    print('Odeme kocurulmedi , kartinizda yeteri qeder vesait yoxdur !')
+
+                        elif secim == "2":
+                            result2 = azn /1.6
+                            azn = azn *1.6
+                            print(f"{result2} Litr Ai95")
+                            pay3 = input('Odenis\n1)Nagd\n2)Kart')
+                            if pay3 == '1':
+                                if balance >= azn:
+                                    ode = balance - azn
+                                    print(ode, 'bizi secdiyiniz ucun tessekurler ')
+                                else:
+                                    print('Pulunuz yoxdur ')
+                            elif pay3 == '2':
+                                if balance >= azn:
+                                    balance = balance - azn
+                                    print('Kartinizi yaxinlasdirin')
+
+                                    time.sleep(4)
+                                    print('Balance', balance, 'Bizi secdiyiniz ucun tessekurler!!')
+                                else:
+                                    print('Kartinizi yaxinlasdirin')
+                                    time.sleep(2)
+                                    print('Odeme kocurulmedi , kartinizda yeteri qeder vesait yoxdur !')
+
+                        elif secim == "3":
+                            result3 = azn / 0.9
+                            azn = azn * 0.9
+                            print(f"{result3} Litr Dizel")
+                            pay3 = input('Odenis\n1)Nagd\n2)Kart')
+                            if pay3 == '1':
+                                if balance >= azn:
+                                    ode = balance - azn
+                                    print(ode, 'bizi secdiyiniz ucun tessekurler ')
+                                else:
+                                    print('Pulunuz yoxdur ')
+                            elif pay3 == '2':
+                                if balance >= azn:
+                                    balance = balance - azn
+                                    print('Kartinizi yaxinlasdirin')
+
+                                    time.sleep(4)
+                                    print('Balance', balance, 'Bizi secdiyiniz ucun tessekurler!!')
+                                else:
+                                    print('Kartinizi yaxinlasdirin')
+                                    time.sleep(2)
+                                    print('Odeme kocurulmedi , kartinizda yeteri qeder vesait yoxdur !')
+
+
+
+                    elif choce_pet == "2":
+                        ShowGuestPetrols(guestPetrol)
+                        litr = float(input('Nece Litr alacaqsiz ? '))
+                        secim2 = input('Hansi secim ? : ')
+                        if secim2 == "1":
+                            summ = litr *1
+                            print(f'{summ} Manat')
+                            pay3 = input('Odenis\n1)Nagd\n2)Kart')
+                            if pay3 == '1':
+                                if balance >= summ:
+                                    ode = balance - summ
+                                    print(ode, 'bizi secdiyiniz ucun tessekurler ')
+                                else:
+                                    print('Pulunuz yoxdur')
+                            elif pay3 == '2':
+                                if balance >= summ:
+                                    balance = balance - summ
+                                    print('Kartinizi yaxinlasdirin')
+
+                                    time.sleep(4)
+                                    print('Balance', balance, 'Bizi secdiyiniz ucun tessekurler!!')
+                                else:
+                                    print('Kartinizi yaxinlasdirin')
+                                    time.sleep(2)
+                                    print('Odeme kocurulmedi , kartinizda yeteri qeder vesait yoxdur !')
+
+
+
+
+                        elif secim2 == '2':
+                            summ2 = litr * 1.6
+                            print(f'{summ2} Manat')
+                            pay3 = input('Odenis\n1)Nagd\n2)Kart')
+                            if pay3 == '1':
+                                if balance >= summ2:
+                                    balance = balance - summ2
+                                    print(balance, 'bizi secdiyiniz ucun tessekurler ')
+
+                                else :
+                                    print('Cibinizde yeteri qeder pul yoxdur ')
+                            elif pay3 == '2':
+                                if balance >= summ2:
+                                    balance = balance - summ2
+                                    print('Kartinizi yaxinlasdirin')
+
+                                    time.sleep(4)
+                                    print('Balance', balance, 'Bizi secdiyiniz ucun tessekurler!!')
+                                else:
+                                    print('Kartinizi yaxinlasdirin')
+                                    time.sleep(2)
+                                    print('Odeme kocurulmedi , kartinizda yeteri qeder vesait yoxdur !')
+
+
+                        elif secim2 == '3':
+                            summ2 = litr * 0.9
+                            print(f'{summ2} Manat')
+                            pay3 = input('Odenis\n1)Nagd\n2)Kart')
+                            if pay3 == '1':
+                                if balance >= summ2:
+                                    ode = balance - summ2
+                                    print(ode, 'bizi secdiyiniz ucun tessekurler ')
+                            elif pay3 == '2':
+                                if balance>=summ2:
+                                    balance = balance - summ2
+                                    print('Kartinizi yaxinlasdirin')
+
+                                    time.sleep(4)
+                                    print('Balance', balance, 'Bizi secdiyiniz ucun tessekurler!!')
+                                else:
+                                    print('Kartinizi yaxinlasdirin')
+                                    time.sleep(2)
+                                    print('Odeme kocurulmedi , kartinizda yeteri qeder vesait yoxdur !')
+
+
+                elif choce == '2':
+                    ShowGuestMenus(Guest)
+                    count = 0
+                    menu = input('Secim edin? : ')
+                    if menu == '1':
+                        c = float(input('Nece dene goturmek istiyirsiniz ? '))
+                        count+=c
+                        print(f'Siz {count} hotdog secdiniz')
+
+                        sumH = count * 2
+                        enter = input('1)Nagd\n2)Card odenisi')
+                        if enter == "1":
+                            if balance>=sumH:
+                                balance = balance - sumH
+                                print('Cekiniz cixarilir..')
+                                time.sleep(1)
+                                print(f'Hotdog Odenildi\n Miqdar :{c}\nHesab : {sumH} ')
+
+                                os.system('cls')
+
+
+                            else:
+                                print('Cibinizde Pulunuz yoxdur')
+                                os.system('cls')
+                        elif enter == '2':
+                            if balance >= sumH:
+                                balance = balance - sumH
+
+
+                                print('Kartinizi yaxinlasdirin')
+                                time.sleep(3)
+                                print(f'Odenildi, Balansiniz {balance}')
+                            else:
+                                print('Kartinizi yaxinlasdirin')
+                                time.sleep(2)
+                                print('Kartinizda yeteri qeder pul yoxdu ')
+                    elif menu == '2':
+                        countCola = 0
+                        c = float(input('Nece dene kola gotureceksen ?'))
+                        countCola+=c
+                        print(f'Siz {countCola} Kola secmisiniz')
+                        enter = input('1)Nagd\n2)Card')
+                        sumC = countCola * 1.5
+                        if enter == '1':
+                            if sumC <= balance:
+                                balance = sumC - balance
+                                print('Cekiniz cixarilir')
+                                time.sleep(0.3)
+                                print(f'Cola Odenildi\n Miqdar :{countCola}\nHesab : {sumC} ')
+                            else:
+                                print('Yeterin qeder cibinde pul yoxdu ')
+                        elif enter == '2':
+                            sumC = countCola * 1.5
+                            if sumC <= balance:
+                                balance = sumC - balance
+                                print('Karttinizi yaxinlasdirin')
+                                time.sleep(4)
+                                print(f'Bizi secdiyiniz ucun tessekurler !! \n Balansiniz :{balance} ')
+                            else:
+                                print('kartinizi yaxinlasdirin')
+                                time.sleep(0.2)
+                                print('Kartinizda yeteri qeder pul yoxdu ')
+                    elif menu == '3':
+                        countHamburger = 0
+                        hamburgerc = float(input('Nece eded Hamburger isteyirsiniz ? '))
+                        countHamburger+=hamburgerc
+                        hammburger = countHamburger *3
+                        pul = input('1)Nagd\n2)Card')
+                        if pul =="1":
+                            if balance >= hammburger:
+                                balance = hammburger - balance
+                                print('Cekiniz cixarilir')
+                                time.sleep(0.3)
+                                print(f'Hamburger Odenildi\n Miqdar :{hamburgerc}\nHesab : {hammburger} ')
+                            else:
+                                print('Yeterin qeder cibinde pul yoxdu ')
+                        elif pul == '2':
+                            if balance >= hammburger:
+                                balance = hammburger - balance
+                                print('Kartinizi yaxinlasdirin')
+                                time.sleep(0.3)
+                                print('Uzur isteyirik, Bir problem oldu kartinizi yeniden oxutdurun')
+                                time.sleep(3)
+                                print(f'Bizi secdiyiniz ucun tessekurler!! \nBalance{balance}')
+                            else:
+                                print('Yeteri qeder kartinizda pulunuz yoxdur ')
+
+        elif Start == "2":
+            adminyoxlanisi()
+            try:
+                while True:
+                    print()
+                    adminecixan()
+                    select = input('\nSecim edin :\t')
+                    print()
+                    if select == '7':
+                        print('Loading..')
+                        time.sleep(2)
+                        print('Systemden basariyla cixilmisdir ')
+                        break
+                    while True:
+                        if select == '1':
+                            print('\n\n')
+                            ShowGuestPetrols(guestPetrol)
+                            break
+                        elif select == '2':
+                            print('\n\n')
+                            ShowGuestMenus(Guest)
+                            break
+                        elif select == '3':
+                            petName = input('Petrollari dosyasi silmekden eminmisiniz ? y/n').lower().strip()
+                            if petName == 'y':
+                                name_p = input('Petroldan silmek istediyiniz petrolun adi daxil edin  ')
+                                if name_p in guestPetrol:
+
+
+                                    guestPetrol.pop(name_p)
+                                    print('silinir..')
+                                    time.sleep(3)
+                                    print(f'Basariyla yazdiginiz {name_p} silinmiwdir  ')
+                                    break
+                                else:
+                                    print(f'{name_p} Daxil etdiyiniz ad tapilmadi ')
+                            elif petName == 'n':
+                                print('Silmek istemekden vazgecdiniz... ')
+                                time.sleep(0.5)
+                                break
+                            else:
+                                print('Yanlis informasiya daxil edilmisdir')
+
+
+
+                        elif select == '4':
+                            FastName = input('Fast Food Dosyasini silmekden eminmisiniz ? y/n').lower().strip()
+                            if FastName == 'y':
+                                adFast = input('FastFooddan silmek istediyiniz foodun adi daxil edin .')
+                                if adFast in Guest.keys():
+
+                                    Guest.pop(adFast)
+                                    print('Silinir....')
+                                    time.sleep(2)
+                                    break
+                                else:
+                                    print(f'{adFast}Daxil etdiyiniz bu ad Fast Food da adi tapilmadi')
+
+                            elif FastName == 'n':
+                                print('Siz Fast Food silmekden vazgecdiniz')
+                                time.sleep(2)
+                                break
+                            else:
+                                print('Yanliw informasiya daxil etdiniz ')
+
+
+
+                        elif select == '5':
+                            AdPet = input('Petrola elave etmek istediyinzden eminmisiniz ?y/n').lower().strip()
+                            if AdPet == 'y':
+                                ad = input('Benzin adi :')
+                                qiy = int(input('Benzin qiymeti : '))
+                                new_petrol = {
+                                    ad: {
+                                        'price': qiy
+                                    }
+                                }
+                                guestPetrol.update(new_petrol)
+                                print('Axtarilir .. ')
+                                time.sleep(0.9)
+                                print('Deyisildi ..')
+                                time.sleep(0.1)
+                                break
+                            elif AdPet == 'n':
+                                print('Seciminizden vazgecmiwdir')
+                                time.sleep(0.5)
+                            else:
+                                print('Duzgun informasiya daxil edilmemisdir ')
+
+                        elif select == '6':
+                            eminlik = input('FastFoodu elave etmek istediyinizden eminmisiniz ? y/n').lower().strip()
+                            if eminlik == 'y':
+                                add = input('FastFoodun adi : ')
+                                qiym = input('FastFoodun qiymeti : ')
+                                newFast = {
+                                    add:{
+                                        'price':qiym
+                                    }
+                                }
+                                Guest.update(newFast)
+                                print('Axtarilir..')
+                                time.sleep(4)
+                                print('Deyisildi .')
+                                time.sleep(0.5)
+                                break
+                            elif eminlik == 'n':
+                                print('Elave etmekden  vazgecdiniz .. ')
+                                time.sleep(4)
+                            else:
+                                print('Axtarilir...')
+                                time.sleep(0.5)
+
+                                print('Duzgun informasiya daxil edilmemisdir ')
+            ###                     
+
+            except:
+                print('Informasiya duzgun daxil edilmemisdir ')
+
+
+except:
+    print('Informasiya duzgun daxil edilmemisdir ')
+
+
+
+
+
